@@ -1,0 +1,64 @@
+{
+  "name": "Juris-Connect Taches",
+  "short_name": "Taches",
+  "description": "Sous-app mobile dediee aux taches et echeances avocat. Acces ultra-rapide depuis l'ecran d'accueil. V13 chantier taches-intelligence-metier.",
+  "start_url": "/app/m/taches",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0077CC",
+  "orientation": "portrait-primary",
+  "scope": "/app/m/taches",
+  "id": "/app/m/taches",
+  "icons": [
+    {
+      "src": "/images/pwa-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/pwa-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/pwa-icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["productivity", "business", "legal"],
+  "lang": "fr-FR",
+  "dir": "ltr",
+  "shortcuts": [
+    {
+      "name": "Nouvelle tache",
+      "short_name": "Ajouter",
+      "description": "Ajouter rapidement une tache via le QuickAdd",
+      "url": "/app/m/taches?quick=1",
+      "icons": [{ "src": "/images/logo-icon.png", "sizes": "512x512" }]
+    },
+    {
+      "name": "Priorites du jour",
+      "short_name": "Aujourd'hui",
+      "description": "Liste scoree des priorites du jour",
+      "url": "/app/m/taches?vue=aujourdhui",
+      "icons": [{ "src": "/images/logo-icon.png", "sizes": "512x512" }]
+    },
+    {
+      "name": "Echeances proches",
+      "short_name": "Echeances",
+      "description": "Taches J-3 / J-10 / J-30",
+      "url": "/app/m/taches?vue=echeances",
+      "icons": [{ "src": "/images/logo-icon.png", "sizes": "512x512" }]
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "handle_links": "preferred",
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
+}

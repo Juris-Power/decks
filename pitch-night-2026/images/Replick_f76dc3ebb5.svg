@@ -1,0 +1,8 @@
+<svg width="150" height="60" viewBox="0 0 150 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="150" height="60" rx="8" fill="#f0f0f0"/>
+  <circle cx="30" cy="30" r="15" fill="#1890ff"/>
+  <path d="M25 30L28 33L35 26" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="55" y="35" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333">
+    REPLICK
+  </text>
+</svg>

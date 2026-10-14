@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Hub simulateurs -->
+  <url>
+    <loc>https://juris-connect.fr/simulateurs</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Hub droit du travail -->
+  <url>
+    <loc>https://juris-connect.fr/simulateurs/droit-du-travail</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Simulateur premium : fin de contrat -->
+  <url>
+    <loc>https://juris-connect.fr/simulateurs/droit-du-travail/fin-contrat-travail</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Indemnites de rupture -->
+  <url>
+    <loc>https://juris-connect.fr/simulateurs/droit-du-travail/indemnites-rupture</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Heures supplementaires -->
+  <url>
+    <loc>https://juris-connect.fr/simulateurs/droit-du-travail/heures-supplementaires</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Convertisseur salaire -->
+  <url>
+    <loc>https://juris-connect.fr/simulateurs/droit-du-travail/convertisseur-salaire</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Chomage ARE -->
+  <url>
+    <loc>https://juris-connect.fr/simulateurs/droit-du-travail/chomage-are</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Conges payes -->
+  <url>
+    <loc>https://juris-connect.fr/simulateurs/droit-du-travail/conges-payes</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Analyse IA -->
+  <url>
+    <loc>https://juris-connect.fr/simulateurs/droit-du-travail/analyse-ia</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Jurimetrie -->
+  <url>
+    <loc>https://juris-connect.fr/simulateurs/droit-du-travail/jurimetrie</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

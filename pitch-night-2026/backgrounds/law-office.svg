@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="lawWall" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a237e"/>
+      <stop offset="100%" style="stop-color:#0d1642"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#5d4037"/>
+      <stop offset="100%" style="stop-color:#3e2723"/>
+    </linearGradient>
+  </defs>
+  <!-- Wall -->
+  <rect width="1920" height="1080" fill="url(#lawWall)"/>
+  <!-- Wood paneling bottom -->
+  <rect y="700" width="1920" height="380" fill="url(#wood)"/>
+  <line x1="0" y1="700" x2="1920" y2="700" stroke="#8d6e63" stroke-width="8"/>
+  <!-- Vertical wood panels -->
+  <line x1="200" y1="700" x2="200" y2="1080" stroke="#4e342e" stroke-width="3"/>
+  <line x1="400" y1="700" x2="400" y2="1080" stroke="#4e342e" stroke-width="3"/>
+  <line x1="600" y1="700" x2="600" y2="1080" stroke="#4e342e" stroke-width="3"/>
+  <line x1="800" y1="700" x2="800" y2="1080" stroke="#4e342e" stroke-width="3"/>
+  <line x1="1000" y1="700" x2="1000" y2="1080" stroke="#4e342e" stroke-width="3"/>
+  <line x1="1200" y1="700" x2="1200" y2="1080" stroke="#4e342e" stroke-width="3"/>
+  <line x1="1400" y1="700" x2="1400" y2="1080" stroke="#4e342e" stroke-width="3"/>
+  <line x1="1600" y1="700" x2="1600" y2="1080" stroke="#4e342e" stroke-width="3"/>
+  <line x1="1800" y1="700" x2="1800" y2="1080" stroke="#4e342e" stroke-width="3"/>
+  <!-- Bookshelf -->
+  <rect x="1400" y="150" width="400" height="500" fill="#3e2723"/>
+  <rect x="1410" y="160" width="380" height="70" fill="#5d4037"/>
+  <rect x="1410" y="240" width="380" height="70" fill="#5d4037"/>
+  <rect x="1410" y="320" width="380" height="70" fill="#5d4037"/>
+  <rect x="1410" y="400" width="380" height="70" fill="#5d4037"/>
+  <rect x="1410" y="480" width="380" height="70" fill="#5d4037"/>
+  <rect x="1410" y="560" width="380" height="70" fill="#5d4037"/>
+  <!-- Law books -->
+  <rect x="1420" y="170" width="50" height="50" fill="#b71c1c"/>
+  <rect x="1475" y="170" width="45" height="50" fill="#1a237e"/>
+  <rect x="1525" y="170" width="55" height="50" fill="#004d40"/>
+  <rect x="1585" y="170" width="40" height="50" fill="#311b92"/>
+  <!-- Scales of justice -->
+  <g transform="translate(300, 200)">
+    <line x1="100" y1="0" x2="100" y2="200" stroke="#ffd700" stroke-width="6"/>
+    <line x1="30" y1="50" x2="170" y2="50" stroke="#ffd700" stroke-width="6"/>
+    <circle cx="30" cy="100" r="40" fill="none" stroke="#ffd700" stroke-width="4"/>
+    <circle cx="170" cy="100" r="40" fill="none" stroke="#ffd700" stroke-width="4"/>
+    <line x1="30" y1="50" x2="30" y2="60" stroke="#ffd700" stroke-width="3"/>
+    <line x1="170" y1="50" x2="170" y2="60" stroke="#ffd700" stroke-width="3"/>
+  </g>
+  <!-- Diploma frames -->
+  <rect x="700" y="200" width="180" height="240" fill="#8d6e63" rx="5"/>
+  <rect x="710" y="210" width="160" height="220" fill="#f5f5dc"/>
+  <rect x="920" y="200" width="180" height="240" fill="#8d6e63" rx="5"/>
+  <rect x="930" y="210" width="160" height="220" fill="#f5f5dc"/>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="libWall" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3e2723"/>
+      <stop offset="100%" style="stop-color:#4e342e"/>
+    </linearGradient>
+  </defs>
+  <!-- Wall -->
+  <rect width="1920" height="1080" fill="url(#libWall)"/>
+  <!-- Bookshelves -->
+  <g id="shelf1">
+    <rect x="50" y="100" width="400" height="800" fill="#5d4037"/>
+    <rect x="60" y="110" width="380" height="100" fill="#8d6e63"/>
+    <rect x="60" y="220" width="380" height="100" fill="#8d6e63"/>
+    <rect x="60" y="330" width="380" height="100" fill="#8d6e63"/>
+    <rect x="60" y="440" width="380" height="100" fill="#8d6e63"/>
+    <rect x="60" y="550" width="380" height="100" fill="#8d6e63"/>
+    <rect x="60" y="660" width="380" height="100" fill="#8d6e63"/>
+    <rect x="60" y="770" width="380" height="100" fill="#8d6e63"/>
+    <!-- Books row 1 -->
+    <rect x="70" y="120" width="40" height="80" fill="#1565c0"/>
+    <rect x="115" y="120" width="35" height="80" fill="#c62828"/>
+    <rect x="155" y="120" width="45" height="80" fill="#2e7d32"/>
+    <rect x="205" y="120" width="30" height="80" fill="#6a1b9a"/>
+    <rect x="240" y="120" width="50" height="80" fill="#e65100"/>
+    <rect x="295" y="120" width="35" height="80" fill="#00838f"/>
+    <rect x="335" y="120" width="40" height="80" fill="#827717"/>
+    <rect x="380" y="120" width="45" height="80" fill="#4527a0"/>
+  </g>
+  <g id="shelf2" transform="translate(500, 0)">
+    <rect x="50" y="100" width="400" height="800" fill="#5d4037"/>
+    <rect x="60" y="110" width="380" height="100" fill="#8d6e63"/>
+    <rect x="60" y="220" width="380" height="100" fill="#8d6e63"/>
+    <rect x="60" y="330" width="380" height="100" fill="#8d6e63"/>
+    <rect x="60" y="440" width="380" height="100" fill="#8d6e63"/>
+    <rect x="60" y="550" width="380" height="100" fill="#8d6e63"/>
+    <rect x="60" y="660" width="380" height="100" fill="#8d6e63"/>
+    <rect x="60" y="770" width="380" height="100" fill="#8d6e63"/>
+  </g>
+  <g id="shelf3" transform="translate(1000, 0)">
+    <rect x="50" y="100" width="400" height="800" fill="#5d4037"/>
+    <rect x="60" y="110" width="380" height="100" fill="#8d6e63"/>
+    <rect x="60" y="220" width="380" height="100" fill="#8d6e63"/>
+    <rect x="60" y="330" width="380" height="100" fill="#8d6e63"/>
+    <rect x="60" y="440" width="380" height="100" fill="#8d6e63"/>
+    <rect x="60" y="550" width="380" height="100" fill="#8d6e63"/>
+    <rect x="60" y="660" width="380" height="100" fill="#8d6e63"/>
+    <rect x="60" y="770" width="380" height="100" fill="#8d6e63"/>
+  </g>
+  <g id="shelf4" transform="translate(1500, 0)">
+    <rect x="50" y="100" width="350" height="800" fill="#5d4037"/>
+    <rect x="60" y="110" width="330" height="100" fill="#8d6e63"/>
+    <rect x="60" y="220" width="330" height="100" fill="#8d6e63"/>
+    <rect x="60" y="330" width="330" height="100" fill="#8d6e63"/>
+    <rect x="60" y="440" width="330" height="100" fill="#8d6e63"/>
+    <rect x="60" y="550" width="330" height="100" fill="#8d6e63"/>
+    <rect x="60" y="660" width="330" height="100" fill="#8d6e63"/>
+    <rect x="60" y="770" width="330" height="100" fill="#8d6e63"/>
+  </g>
+  <!-- Warm light overlay -->
+  <rect width="1920" height="1080" fill="#ff8f00" opacity="0.1"/>
+</svg>

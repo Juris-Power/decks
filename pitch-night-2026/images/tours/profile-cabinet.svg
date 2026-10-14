@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160" width="320" height="160">
+  <g transform="translate(160,80)" stroke="#0077CC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Building / office icon -->
+    <rect x="-20" y="-24" width="40" height="48" rx="2"/>
+    <!-- Door -->
+    <rect x="-6" y="8" width="12" height="16" rx="1"/>
+    <!-- Windows row 1 -->
+    <rect x="-14" y="-18" width="8" height="8" rx="1" fill="#FFFFFF" stroke="#0077CC" stroke-width="1.5"/>
+    <rect x="6" y="-18" width="8" height="8" rx="1" fill="#FFFFFF" stroke="#0077CC" stroke-width="1.5"/>
+    <!-- Windows row 2 -->
+    <rect x="-14" y="-4" width="8" height="8" rx="1" fill="#FFFFFF" stroke="#0077CC" stroke-width="1.5"/>
+    <rect x="6" y="-4" width="8" height="8" rx="1" fill="#FFFFFF" stroke="#0077CC" stroke-width="1.5"/>
+    <!-- Roof detail -->
+    <line x1="-24" y1="-24" x2="24" y2="-24"/>
+    <!-- Ground line -->
+    <line x1="-28" y1="24" x2="28" y2="24"/>
+  </g>
+</svg>

@@ -1,0 +1,457 @@
+openapi: 3.1.0
+# BIC-7 (V4.2) — Spec contractuelle de l'API publique de signature Juris-Connect.
+#
+# STATUT : spec-first (Phase 2.1 de ADR-V4-2-public-rest-api.md). L'implémentation
+# (ApiKeyGuard + endpoints dev + iFrame SDK + sandbox) est V_next, gatée sur
+# validation user + V4.1 stabilisé (cf ADR-V4-2 « Statut » + DoR-D9 V4.2=2026-09-30).
+# Ce document EST le livrable « OpenAPI 3.1 spec » de BIC-7 ligne 1 — il fige le
+# contrat que l'implémentation devra respecter (driven-design, pas une façade).
+#
+# Le contrat des champs reflète le DTO réel back/.../dto/signatures.dto.ts
+# (SendSignatureRequestDto / SendSignatureResponseDto) — l'impl publique
+# réutilisera le service d'envoi existant (règle 30).
+info:
+  title: Juris-Connect — API Signature électronique
+  version: 1.0.0-draft
+  description: >
+    API REST publique pour créer et suivre des demandes de signature électronique
+    (SES / AES / QES, eIDAS UE 910/2014). Authentification par clé API.
+
+
+    **Environnements (DoR-D7, ADR-V42-002)** : même backend, comportement différencié
+    par préfixe de clé. `jp_sig_test_*` = sandbox (aucun email réel, aucune
+    facturation). `jp_sig_live_*` = production. Pas de sous-domaine distinct requis
+    pour la distinction test/live.
+
+
+    **Niveau eIDAS** : si `level` est omis, le `SignatureRuleEngine` (ADR-082) le
+    sélectionne automatiquement (acte d'avocat → QES forcée, etc.).
+  contact:
+    name: Support API Juris-Connect
+    email: support@juris-connect.fr
+  license:
+    name: Propriétaire — Juris-Connect
+servers:
+  - url: https://avocat.juris-connect.fr/back/signatures/api
+    description: Production (clés jp_sig_live_*)
+  - url: https://avocat.juris-connect.fr/back/signatures/api
+    description: Sandbox — mêmes endpoints, clés jp_sig_test_* (comportement test)
+
+security:
+  - ApiKeyAuth: []
+
+tags:
+  - name: signature-requests
+    description: Création et suivi des demandes de signature
+  - name: artifacts
+    description: Artefacts probatoires (certificat, export ZIP Art. 20)
+
+paths:
+  /v1/signature-requests:
+    post:
+      tags: [signature-requests]
+      summary: Créer une demande de signature
+      operationId: createSignatureRequest
+      description: >
+        Crée une demande de signature multi-signataires/multi-documents. Réutilise
+        le moteur d'envoi interne. Le niveau eIDAS est auto-sélectionné si omis.
+      parameters:
+        - name: Idempotency-Key
+          in: header
+          required: false
+          description: >
+            Clé d'idempotence optionnelle (pattern Stripe). Si fournie, un rejeu
+            de la même clé (ex. après timeout réseau) retourne la réponse de la
+            première création au lieu de créer une SECONDE demande de signature
+            (anti double-envoi de document au signataire). Scopée par avocat,
+            mémorisée 24 h, posée uniquement sur succès.
+          schema:
+            type: string
+            maxLength: 255
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSignatureRequest'
+      responses:
+        '201':
+          description: Demande créée
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignatureRequest'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /v1/signature-requests/{id}:
+    get:
+      tags: [signature-requests]
+      summary: Statut d'une demande de signature
+      operationId: getSignatureRequest
+      parameters:
+        - $ref: '#/components/parameters/RequestId'
+      responses:
+        '200':
+          description: Statut courant + progression signataires
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignatureRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /v1/signature-requests/{id}/certificate:
+    get:
+      tags: [artifacts]
+      summary: Certificat de signature (PDF)
+      operationId: getSignatureCertificate
+      description: >
+        Certificat probatoire PDF (identité document, horodatage qualifié RFC 3161,
+        piste d'audit par signataire). Implémenté par `SignatureCertificateService`
+        (BIC-6) — l'API publique réexpose l'endpoint existant.
+      parameters:
+        - $ref: '#/components/parameters/RequestId'
+      responses:
+        '200':
+          description: Certificat PDF
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /v1/signature-requests/{id}/export:
+    get:
+      tags: [artifacts]
+      summary: Export ZIP portabilité (Article 20 RGPD)
+      operationId: getSignatureExport
+      description: >
+        ZIP = certificat PDF + document signé agrégé + metadata.json (evidence
+        bundle eIDAS). Implémenté par `SignatureExportService` (BIC-6).
+      parameters:
+        - $ref: '#/components/parameters/RequestId'
+      responses:
+        '200':
+          description: Archive ZIP
+          content:
+            application/zip:
+              schema:
+                type: string
+                format: binary
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+
+# OpenAPI 3.1 webhooks — événements SORTANTS poussés vers l'adresse que l'avocat
+# configure dans ses intégrations. Le contrat se lit dans le code, à relire s'il
+# bouge :
+#   - l'enveloppe et les en-têtes : back/src/common/utils/signature-webhook-sortant.ts ;
+#   - le délai de réponse et la désactivation : back/src/features/lawyer/cases/lawyer-webhook.service.ts ;
+#   - les nouveaux essais : back/src/features/lawyer/cases/webhook-retry.scheduler.ts.
+# Les en-têtes gardent l'ANCIEN nom (X-JurisPower-*), et c'est voulu : une
+# intégration les lit dans son propre code, les renommer la casserait.
+# Corrigé le 2026-10-09 : ce commentaire annonçait un en-tête X-Mediane-Signature,
+# un identifiant de livraison « idempotent » et sept essais, et le schéma posait
+# les champs à la racine du corps. Aucun des quatre n'était vrai.
+webhooks:
+  signature.request.completed:
+    post:
+      summary: Demande de signature complétée
+      description: >
+        Émis quand TOUS les signataires d'une demande ont signé. Le corps est une
+        enveloppe `{ event, timestamp, data }` : la demande est dans `data`,
+        volontairement minimale. Le reste se lit par
+        `GET /v1/signature-requests/{id}`.
+
+
+        **Vérifier l'origine** : l'en-tête `X-JurisPower-Signature` vaut
+        `sha256=<hex>`, le HMAC-SHA256 du corps tel qu'il est reçu, calculé avec
+        le secret du webhook. Recalculez-le sur les octets bruts, avant toute
+        lecture du JSON, et comparez en temps constant.
+
+
+        **Accuser réception** : répondez 2xx en moins de 5 secondes. Sinon, la
+        livraison est retentée jusqu'à quatre fois, environ 1 min, 30 min, 2 h
+        puis 12 h après chaque échec. Chaque essai porte un
+        `X-JurisPower-Delivery-Id` neuf : dédoublonnez sur
+        `data.signatureRequestId`. Au cinquième échec consécutif, le webhook est
+        désactivé.
+      operationId: webhookSignatureRequestCompleted
+      parameters:
+        - in: header
+          name: X-JurisPower-Signature
+          required: true
+          description: '`sha256=<hex>` : HMAC-SHA256 du corps brut, avec le secret du webhook.'
+          schema:
+            type: string
+            pattern: '^sha256=[0-9a-f]{64}$'
+        - in: header
+          name: X-JurisPower-Event
+          required: true
+          schema:
+            type: string
+            enum: [signature.request.completed]
+        - in: header
+          name: X-JurisPower-Timestamp
+          required: true
+          description: Horodatage de l'envoi, en secondes epoch. C'est le `timestamp` du corps.
+          schema:
+            type: string
+            pattern: '^[0-9]+$'
+        - in: header
+          name: X-JurisPower-Delivery-Id
+          required: true
+          description: Identifiant de CET essai, 16 caractères hexadécimaux, neuf à chaque nouvel essai.
+          schema:
+            type: string
+            pattern: '^[0-9a-f]{16}$'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookSignatureCompleted'
+      responses:
+        '200':
+          description: Accusé de réception (tout 2xx convient).
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+      description: >
+        Clé API `jp_sig_live_*` (production) ou `jp_sig_test_*` (sandbox). Stockée
+        hashée SHA-256 côté serveur (`back.signature_api_key.api_key_hash`),
+        jamais en clair. Rotation via `/app/signatures/api-keys`.
+  parameters:
+    RequestId:
+      name: id
+      in: path
+      required: true
+      description: Identifiant (UUID) de la demande de signature.
+      schema:
+        type: string
+        format: uuid
+  responses:
+    BadRequest:
+      description: Requête invalide (validation des champs)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Clé API manquante ou invalide
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Demande introuvable (ou hors périmètre de la clé)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    RateLimited:
+      description: >
+        Quota de la clé API dépassé. Le rate-limit est appliqué PAR CLÉ API
+        (et non par IP) : chaque clé dispose de son propre quota. Les en-têtes
+        `X-RateLimit-*` sont renvoyés sur CHAQUE réponse pour piloter le débit ;
+        `Retry-After` (secondes) indique le délai avant réessai sur un 429.
+      headers:
+        X-RateLimit-Limit:
+          description: Nombre de requêtes autorisées sur la fenêtre.
+          schema:
+            type: integer
+        X-RateLimit-Remaining:
+          description: Requêtes restantes dans la fenêtre courante.
+          schema:
+            type: integer
+        X-RateLimit-Reset:
+          description: Timestamp Unix (secondes) de réinitialisation de la fenêtre.
+          schema:
+            type: integer
+        Retry-After:
+          description: Secondes à attendre avant de réessayer (présent sur 429).
+          schema:
+            type: integer
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    EidasLevel:
+      type: string
+      enum: [acceptance, ses, eas, qes]
+      description: >
+        Niveau eIDAS. `acceptance` (clic), `ses` (art. 25.1), `eas` (avancée,
+        art. 26), `qes` (qualifiée, art. 28). Omis → auto via SignatureRuleEngine.
+    SignerInfo:
+      type: object
+      required: [email]
+      properties:
+        email:
+          type: string
+          format: email
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        phone:
+          type: string
+          nullable: true
+        role:
+          type: string
+          enum: [lawyer, client, opposing_party]
+          nullable: true
+        signerOrder:
+          type: integer
+          minimum: 1
+          description: Ordre 1-based (utilisé si signOrderMode=sequential).
+    DocumentInput:
+      type: object
+      required: [filename, contentBase64]
+      properties:
+        filename:
+          type: string
+        contentBase64:
+          type: string
+          description: PDF encodé base64 (chiffré en transit TLS).
+    CreateSignatureRequest:
+      type: object
+      required: [documents, signers]
+      properties:
+        documents:
+          type: array
+          minItems: 1
+          maxItems: 20
+          description: Document primaire + jusqu'à 19 annexes.
+          items:
+            $ref: '#/components/schemas/DocumentInput'
+        signers:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/SignerInfo'
+        level:
+          $ref: '#/components/schemas/EidasLevel'
+        signOrderMode:
+          type: string
+          enum: [parallel, sequential]
+          default: parallel
+          description: Ignoré si un seul signataire.
+        webhookUrl:
+          type: string
+          format: uri
+          nullable: true
+          description: URL notifiée aux changements de statut (V_next).
+    SignerStatus:
+      type: object
+      properties:
+        order:
+          type: integer
+        email:
+          type: string
+          format: email
+        status:
+          type: string
+          enum: [pending, otp_sent, signed, expired, declined]
+        signedAt:
+          type: string
+          format: date-time
+          nullable: true
+    SignatureRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [pending, otp_sent, sent, signed, expired, declined, canceled, error]
+        level:
+          $ref: '#/components/schemas/EidasLevel'
+        signOrderMode:
+          type: string
+          enum: [parallel, sequential]
+        createdAt:
+          type: string
+          format: date-time
+        signedAt:
+          type: string
+          format: date-time
+          nullable: true
+        signers:
+          type: array
+          items:
+            $ref: '#/components/schemas/SignerStatus'
+    Error:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+        message:
+          type: string
+        error:
+          type: string
+    WebhookSignatureCompleted:
+      type: object
+      description: >
+        Corps de l'événement `signature.request.completed` : l'enveloppe commune
+        aux webhooks sortants. La signature porte sur ces octets exacts.
+      properties:
+        event:
+          type: string
+          enum: [signature.request.completed]
+        timestamp:
+          type: string
+          pattern: '^[0-9]+$'
+          description: Horodatage de l'envoi, en secondes epoch, écrit en chaîne.
+        data:
+          type: object
+          description: La demande complétée.
+          properties:
+            event:
+              type: string
+              enum: [signature.request.completed]
+            signatureRequestId:
+              type: string
+              format: uuid
+              description: Identifiant de la demande (= id de l'event signature).
+            level:
+              $ref: '#/components/schemas/EidasLevel'
+            type:
+              type: string
+              description: Type de demande (convention, acte-avocat, devis…).
+            status:
+              type: string
+              description: Statut de la demande au moment de l'envoi (completed).
+            completedAt:
+              type: string
+              format: date-time
+              description: Horodatage de la complétion (dernier signataire).
+          required:
+            - event
+            - signatureRequestId
+      required:
+        - event
+        - timestamp
+        - data

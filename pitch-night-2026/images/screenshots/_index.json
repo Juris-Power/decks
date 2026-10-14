@@ -1,0 +1,391 @@
+{
+  "version": "2.1",
+  "generated": "2026-08-02T21:52:34.115Z",
+  "categories": {
+    "dashboard": {
+      "label": "Espace Avocat — Pages du dashboard",
+      "count": 11,
+      "screenshots": [
+        {
+          "id": "agenda-disponibilites",
+          "file": "dashboard/agenda-disponibilites.gif",
+          "size": "1839KB",
+          "formats": {
+            "gif": "1839KB",
+            "mp4": "213KB",
+            "webp": "2616KB",
+            "png": "283KB",
+            "poster": "104KB"
+          }
+        },
+        {
+          "id": "agenda-rdv",
+          "file": "dashboard/agenda-rdv.gif",
+          "size": "592KB",
+          "formats": {
+            "gif": "592KB",
+            "mp4": "142KB",
+            "webp": "1575KB",
+            "png": "205KB",
+            "poster": "66KB"
+          }
+        },
+        {
+          "id": "cockpit-mes-taches",
+          "file": "dashboard/cockpit-mes-taches.gif",
+          "size": "1289KB",
+          "formats": {
+            "gif": "1289KB",
+            "mp4": "154KB",
+            "webp": "1873KB",
+            "png": "228KB",
+            "poster": "80KB"
+          }
+        },
+        {
+          "id": "cockpit-mon-tableau",
+          "file": "dashboard/cockpit-mon-tableau.gif",
+          "size": "1845KB",
+          "formats": {
+            "gif": "1845KB",
+            "mp4": "257KB",
+            "webp": "3187KB",
+            "png": "324KB",
+            "poster": "108KB"
+          }
+        },
+        {
+          "id": "contacts-grid",
+          "file": "dashboard/contacts-grid.gif",
+          "size": "1909KB",
+          "formats": {
+            "gif": "1909KB",
+            "mp4": "323KB",
+            "webp": "2888KB",
+            "png": "216KB",
+            "poster": "79KB"
+          }
+        },
+        {
+          "id": "contacts-table",
+          "file": "dashboard/contacts-table.gif",
+          "size": "1989KB",
+          "formats": {
+            "gif": "1989KB",
+            "mp4": "230KB",
+            "webp": "2803KB",
+            "png": "299KB",
+            "poster": "115KB"
+          }
+        },
+        {
+          "id": "dossiers-kanban",
+          "file": "dashboard/dossiers-kanban.gif",
+          "size": "1851KB",
+          "formats": {
+            "gif": "1851KB",
+            "mp4": "203KB",
+            "webp": "2631KB",
+            "png": "221KB",
+            "poster": "76KB"
+          }
+        },
+        {
+          "id": "dossiers-table",
+          "file": "dashboard/dossiers-table.gif",
+          "size": "1842KB",
+          "formats": {
+            "gif": "1842KB",
+            "mp4": "192KB",
+            "webp": "2624KB",
+            "png": "243KB",
+            "poster": "84KB"
+          }
+        },
+        {
+          "id": "home",
+          "file": "dashboard/home.gif",
+          "size": "1656KB",
+          "formats": {
+            "gif": "1656KB",
+            "mp4": "313KB",
+            "webp": "2729KB",
+            "png": "99KB",
+            "poster": "29KB"
+          }
+        },
+        {
+          "id": "prestations",
+          "file": "dashboard/prestations.gif",
+          "size": "1703KB",
+          "formats": {
+            "gif": "1703KB",
+            "mp4": "282KB",
+            "webp": "56KB",
+            "png": "244KB",
+            "poster": "85KB"
+          }
+        },
+        {
+          "id": "taches",
+          "file": "dashboard/taches.gif",
+          "size": "2248KB",
+          "formats": {
+            "gif": "2248KB",
+            "mp4": "390KB",
+            "webp": "3964KB",
+            "png": "249KB",
+            "poster": "85KB"
+          }
+        }
+      ]
+    },
+    "drawers": {
+      "label": "Drawers et modals",
+      "count": 10,
+      "screenshots": [
+        {
+          "id": "agenda-settings",
+          "file": "drawers/agenda-settings.gif",
+          "size": "320KB",
+          "formats": {
+            "gif": "320KB",
+            "mp4": "85KB",
+            "webp": "525KB",
+            "png": "217KB",
+            "poster": "79KB"
+          }
+        },
+        {
+          "id": "agenda-templates",
+          "file": "drawers/agenda-templates.gif",
+          "size": "690KB",
+          "formats": {
+            "gif": "690KB",
+            "mp4": "135KB",
+            "webp": "866KB",
+            "png": "217KB",
+            "poster": "80KB"
+          }
+        },
+        {
+          "id": "calendar-sync",
+          "file": "drawers/calendar-sync.gif",
+          "size": "213KB",
+          "formats": {
+            "gif": "213KB",
+            "mp4": "78KB",
+            "webp": "442KB",
+            "png": "216KB",
+            "poster": "79KB"
+          }
+        },
+        {
+          "id": "case-detail",
+          "file": "drawers/case-detail.gif",
+          "size": "200KB",
+          "formats": {
+            "gif": "200KB",
+            "mp4": "74KB",
+            "webp": "498KB",
+            "png": "244KB",
+            "poster": "85KB"
+          }
+        },
+        {
+          "id": "client-detail",
+          "file": "drawers/client-detail.gif",
+          "size": "252KB",
+          "formats": {
+            "gif": "252KB",
+            "mp4": "71KB",
+            "webp": "486KB",
+            "png": "248KB",
+            "poster": "80KB"
+          }
+        },
+        {
+          "id": "create-availability",
+          "file": "drawers/create-availability.gif",
+          "size": "264KB",
+          "formats": {
+            "gif": "264KB",
+            "mp4": "85KB",
+            "webp": "483KB",
+            "png": "216KB",
+            "poster": "79KB"
+          }
+        },
+        {
+          "id": "create-case",
+          "file": "drawers/create-case.gif",
+          "size": "617KB",
+          "formats": {
+            "gif": "617KB",
+            "mp4": "82KB",
+            "webp": "633KB",
+            "png": "243KB",
+            "poster": "85KB"
+          }
+        },
+        {
+          "id": "create-contact",
+          "file": "drawers/create-contact.gif",
+          "size": "77KB",
+          "formats": {
+            "gif": "77KB",
+            "mp4": "28KB",
+            "webp": "100KB",
+            "png": "257KB",
+            "poster": "27KB"
+          }
+        },
+        {
+          "id": "filter-contacts",
+          "file": "drawers/filter-contacts.gif",
+          "size": "365KB",
+          "formats": {
+            "gif": "365KB",
+            "mp4": "90KB",
+            "webp": "603KB",
+            "png": "248KB",
+            "poster": "80KB"
+          }
+        },
+        {
+          "id": "notification-panel",
+          "file": "drawers/notification-panel.gif",
+          "size": "485KB",
+          "formats": {
+            "gif": "485KB",
+            "mp4": "119KB",
+            "webp": "768KB",
+            "png": "327KB",
+            "poster": "108KB"
+          }
+        }
+      ]
+    },
+    "actions": {
+      "label": "Actions interactives",
+      "count": 7,
+      "screenshots": [
+        {
+          "id": "bulk-actions",
+          "file": "actions/bulk-actions.gif",
+          "size": "198KB",
+          "formats": {
+            "gif": "198KB",
+            "mp4": "71KB",
+            "webp": "479KB",
+            "png": "247KB",
+            "poster": "80KB"
+          }
+        },
+        {
+          "id": "command-palette",
+          "file": "actions/command-palette.gif",
+          "size": "928KB",
+          "formats": {
+            "gif": "928KB",
+            "mp4": "163KB",
+            "webp": "1767KB",
+            "png": "248KB",
+            "poster": "80KB"
+          }
+        },
+        {
+          "id": "inline-edit",
+          "file": "actions/inline-edit.gif",
+          "size": "172KB",
+          "formats": {
+            "gif": "172KB",
+            "mp4": "69KB",
+            "webp": "313KB",
+            "png": "247KB",
+            "poster": "80KB"
+          }
+        },
+        {
+          "id": "kanban-drag-drop",
+          "file": "actions/kanban-drag-drop.gif",
+          "size": "226KB",
+          "formats": {
+            "gif": "226KB",
+            "mp4": "81KB",
+            "webp": "810KB",
+            "png": "244KB",
+            "poster": "85KB"
+          }
+        },
+        {
+          "id": "keyboard-shortcuts",
+          "file": "actions/keyboard-shortcuts.gif",
+          "size": "718KB",
+          "formats": {
+            "gif": "718KB",
+            "mp4": "153KB",
+            "webp": "1062KB",
+            "png": "248KB",
+            "poster": "80KB"
+          }
+        },
+        {
+          "id": "search-contacts",
+          "file": "actions/search-contacts.gif",
+          "size": "437KB",
+          "formats": {
+            "gif": "437KB",
+            "mp4": "111KB",
+            "webp": "836KB",
+            "png": "247KB",
+            "poster": "80KB"
+          }
+        },
+        {
+          "id": "view-switch",
+          "file": "actions/view-switch.gif",
+          "size": "205KB",
+          "formats": {
+            "gif": "205KB",
+            "mp4": "76KB",
+            "webp": "810KB",
+            "png": "247KB",
+            "poster": "80KB"
+          }
+        }
+      ]
+    },
+    "ux": {
+      "label": "Fonctionnalités UX",
+      "count": 2,
+      "screenshots": [
+        {
+          "id": "help-center",
+          "file": "ux/help-center.gif",
+          "size": "504KB",
+          "formats": {
+            "gif": "504KB",
+            "mp4": "117KB",
+            "webp": "936KB",
+            "png": "325KB",
+            "poster": "108KB"
+          }
+        },
+        {
+          "id": "saved-views",
+          "file": "ux/saved-views.gif",
+          "size": "1882KB",
+          "formats": {
+            "gif": "1882KB",
+            "mp4": "185KB",
+            "webp": "2628KB",
+            "png": "247KB",
+            "poster": "80KB"
+          }
+        }
+      ]
+    }
+  },
+  "total": 30
+}

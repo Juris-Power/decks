@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Accueil avocat -->
+  <url>
+    <loc>https://avocat.juris-connect.fr/</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Fonctionnalites -->
+  <url>
+    <loc>https://avocat.juris-connect.fr/fonctionnalites</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Tarifs -->
+  <url>
+    <loc>https://avocat.juris-connect.fr/tarifs</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Temoignages -->
+  <url>
+    <loc>https://avocat.juris-connect.fr/temoignages</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://avocat.juris-connect.fr/faq</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Support -->
+  <url>
+    <loc>https://avocat.juris-connect.fr/support</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Inscription -->
+  <url>
+    <loc>https://avocat.juris-connect.fr/dashboard/inscription</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Connexion -->
+  <url>
+    <loc>https://avocat.juris-connect.fr/dashboard/connexion</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Simulateur d'installation : la route n'est montée que sur l'espace
+       avocat (lawyer-subdomain.routes.tsx). Elle figurait au sitemap des
+       simulateurs, servi sur le domaine public, qui ne sert pas cette page.
+       Banc : le-simulateur-se-declare-sur-l-hote-avocat.test.tsx -->
+  <url>
+    <loc>https://avocat.juris-connect.fr/simulateurs/installation-cabinet</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
