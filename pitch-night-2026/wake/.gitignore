@@ -1,7 +1,0 @@
-# Assets souverains du wake word (V4) — fetchés par scripts/setup-wake-assets.sh
-# et/ou entraînés (hey_juris.onnx). GITIGNORÉS : binaires lourds, hors repo (pas de
-# bloat git) — re-générables localement + au déploiement. Seuls README + ce .gitignore
-# sont versionnés (le contrat de déploiement, pas les binaires).
-*
-!.gitignore
-!README.md
