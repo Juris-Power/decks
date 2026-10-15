@@ -1,4 +1,4 @@
-import{M as e}from"./PresentationShell-DUNEbqxX.js";const n={visio:{titre:"Visioconsultation souveraine",fiches:[{id:"sans-install",libelle:"Sans installation",desc:`La consultation s'ouvre dans le navigateur, sur une visio hébergée en France. Rien à télécharger, ni pour vous ni pour votre client.
+import{M as e}from"./PresentationShell-BGqJgHxI.js";const n={visio:{titre:"Visioconsultation souveraine",fiches:[{id:"sans-install",libelle:"Sans installation",desc:`La consultation s'ouvre dans le navigateur, sur une visio hébergée en France. Rien à télécharger, ni pour vous ni pour votre client.
 
 Test de la caméra et du micro avant chaque rendez-vous, pour que la première minute serve à parler et non à dépanner.`},{id:"salle-attente",libelle:"Salle d'attente",desc:`Votre client teste ses appareils et choisit son arrière-plan en patientant ; pour un rendez-vous planifié, un compte à rebours et quelques conseils lui disent où il en est.
 
