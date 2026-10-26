@@ -1,0 +1,66 @@
+{
+  "deck": "pitch-night-2026",
+  "titre": "Juris-Connect — Pitch Night 2026",
+  "planches": [
+    {
+      "id": "nom",
+      "titre": "Le nom",
+      "clics": 1
+    },
+    {
+      "id": "systeme",
+      "titre": "Le cabinet connecté",
+      "clics": 1
+    },
+    {
+      "id": "affaire",
+      "titre": "Une affaire, de bout en bout",
+      "clics": 6
+    },
+    {
+      "id": "produit",
+      "titre": "Le produit",
+      "clics": 4
+    },
+    {
+      "id": "difference",
+      "titre": "Le moteur Juris-IA",
+      "clics": 4
+    },
+    {
+      "id": "marche",
+      "titre": "Le marché",
+      "clics": 3
+    },
+    {
+      "id": "modele",
+      "titre": "Le modèle économique",
+      "clics": 4
+    },
+    {
+      "id": "traction",
+      "titre": "La traction",
+      "clics": 0
+    },
+    {
+      "id": "equipe",
+      "titre": "L’équipe et le board",
+      "clics": 0
+    },
+    {
+      "id": "objectifs",
+      "titre": "L’objectif 2030",
+      "clics": 0
+    },
+    {
+      "id": "financement",
+      "titre": "Le financement",
+      "clics": 0
+    },
+    {
+      "id": "merci",
+      "titre": "Merci",
+      "clics": 0
+    }
+  ]
+}
