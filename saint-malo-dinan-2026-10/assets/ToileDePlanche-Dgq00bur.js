@@ -1,4 +1,4 @@
-import{a as s,j as c}from"./vendor-framer-C8Iu_Nti.js";import{g as i,c as l,p as r,s as a,w as t,f as n,n as m}from"./deck-B2zeKSO4.js";import{n as e,r as w}from"./PresentationShell-DtVK5e-4.js";const y={largeur:m(2e3),hauteur:m(1125)},I=n`
+import{a as s,j as c}from"./vendor-framer-C8Iu_Nti.js";import{g as i,c as l,p as r,s as a,w as t,f as n,n as m}from"./deck-C3_fBUdn.js";import{n as e,r as w}from"./PresentationShell-DIHxBdxX.js";const y={largeur:m(2e3),hauteur:m(1125)},I=n`
   font-family:
     "OverpassBold",
     system-ui,
