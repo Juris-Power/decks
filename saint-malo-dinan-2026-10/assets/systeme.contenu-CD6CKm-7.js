@@ -1,4 +1,4 @@
-import{M as e}from"./PresentationShell-BRLrsUGH.js";const n={visio:{titre:"Visioconsultation souveraine",fiches:[{id:"sans-install",libelle:"Sans installation",desc:`La consultation s'ouvre dans le navigateur, sur une visio hébergée en France. Rien à télécharger, ni pour vous ni pour votre client.
+import{M as e}from"./PresentationShell-BD69KkjN.js";const n={visio:{titre:"Visioconsultation souveraine",fiches:[{id:"sans-install",libelle:"Sans installation",desc:`La consultation s'ouvre dans le navigateur, sur une visio hébergée en France. Rien à télécharger, ni pour vous ni pour votre client.
 
 Test de la caméra et du micro avant chaque rendez-vous, pour que la première minute serve à parler et non à dépanner.`},{id:"salle-attente",libelle:"Salle d'attente",desc:`Votre client teste ses appareils et choisit son arrière-plan en patientant ; pour un rendez-vous planifié, un compte à rebours et quelques conseils lui disent où il en est.
 
@@ -30,7 +30,7 @@ L'historique du dossier garde chaque consultation, sa durée et, si elle a été
 
 Le partage est le vôtre : vous décidez de ce qu'il voit.`}]},"assistant-ia":{titre:"Une IA qui vérifie ce qu'elle cite",fiches:[{id:"redaction",libelle:"Rédaction assistée",desc:`Un assistant qui rédige avec vous et génère vos documents à partir des modèles de votre cabinet.
 
-Il s'appuie sur un modèle d'IA français, appelé dans l'Union européenne.`},{id:"veille",libelle:"Veille jurisprudentielle",desc:`Les décisions qui touchent vos domaines remontent à vous, au lieu d'être cherchées.
+Il s'appuie, par défaut, sur le modèle d'une société française, exécuté en Europe (Union européenne et AELE).`},{id:"veille",libelle:"Veille jurisprudentielle",desc:`Les décisions qui touchent vos domaines remontent à vous, au lieu d'être cherchées.
 
 Les références légales sont vérifiées contre les sources officielles : une citation inventée n'a rien à faire dans un acte.`},{id:"recherche",libelle:"Recherche d'historique",desc:`Ce que vous avez déjà écrit, décidé ou envoyé redevient trouvable, quel que soit le dossier où ça dort.
 
